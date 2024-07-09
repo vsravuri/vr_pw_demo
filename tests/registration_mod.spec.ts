@@ -15,7 +15,7 @@ test('has title', async ({ page }) => {
 
 
     //Marital Status: - Radio Button
-    //await page.locator('[name="m_status"][type="radio"]').getByLabel('Single').check();
+    await page.locator('[class="radio_wrap"][name="m_status"][type="radio"]').getByLabel('Single').check();
 
     //Hobby: - CheckBox
     //await page.locator('input[type="checkbox"][name="hobby"]').getByText('Dance').check();
