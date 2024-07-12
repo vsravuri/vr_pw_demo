@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import {type} from "node:os";
 
-test('has title', async ({ page }) => {
+test('jQuery Registration Page >>> ', async ({ page }) => {
     
     await page.goto('https://www.way2automation.com/way2auto_jquery/registration.php#load_box');
     // Expect a title "to contain" a substring.
