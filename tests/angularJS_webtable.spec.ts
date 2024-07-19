@@ -46,4 +46,22 @@ test('AngularJS WebTable', async({page}) =>{
   
     await page.waitForTimeout(3000)
 
+    //------------------ Alternative way ---------------------------------//
+
+    // const rowElement = page.locator('tbody').getByRole('row').nth(0);
+    // const columnCount = await rowElement.getByRole('cell').count();
+    // console.log(columnCount);
+    // for (let i = 0; i < columnCount; i++){
+    //   console.log(await rowElement.getByRole('cell').nth(i).innerText());
+    // }
+
+    // const rowElement = page.locator('tbody').locator('tr').nth(0);
+    // const columnCount = await rowElement.locator('td').count();
+    // console.log(columnCount);
+    // for (let i = 0; i < columnCount; i++){
+    //   console.log(await rowElement.locator('td').nth(i).innerText());
+    // }
+
+    //------------------------------------------------------------------------------//
+
 })
