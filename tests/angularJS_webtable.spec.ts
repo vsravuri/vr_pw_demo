@@ -14,20 +14,23 @@ test('AngularJS WebTable', async({page}) =>{
     //await expect(page.locator('table > tbody > tr')).toHaveCount(9)
     //await page.waitForTimeout(3000)
 
-    //Print the record of the First Row
-
     //Count the Number of Columns in the 1st Row of the Table 
     //await expect(page.locator('table > tbody > tr:nth-child(1) > td')).toHaveCount(9)
     //await page.waitForTimeout(3000)
 
+    //Print the record of the First Row
+    const rowCount = await page.locator('table > tbody > tr:nth-child(1) > td').count()
     const columnCount = await page.locator('table > tbody > tr:nth-child(1) > td').count()
 
+    for (var m=1;m<rowCount+1;m++) {
+        console.log ('------------ ROW ------------------ >> ' +m)
     for (var i=1;i<columnCount+1;i++){
-
-        const cv = await page.locator('table > tbody > tr:nth-child(1) > td:nth-child(/i/)').innerText();
-        console.log('Column Value' + cv);
+        const cv = await page.locator('table > tbody > tr:nth-child(1) > td:nth-child('+i+')').innerText();
+        console.log('Column Value >> '+i +' - for Row - '+ m + ' >> '+cv);
+      }
     }
-  // const FN = await page.locator('table > tbody > tr:nth-child(1) > td:nth-child(1)').innerText();
+
+    // const FN = await page.locator('table > tbody > tr:nth-child(1) > td:nth-child(1)').innerText();
     // const LN = await page.locator('table > tbody > tr:nth-child(1) > td:nth-child(2)').innerText();
     // const age = await page.locator('table > tbody > tr:nth-child(1) > td:nth-child(3)').innerText();
     // const eMail = await page.locator('table > tbody > tr:nth-child(1) > td:nth-child(4)').innerText();
@@ -41,7 +44,6 @@ test('AngularJS WebTable', async({page}) =>{
     // console.log('Balance >> ' + balance);
     // console.log ('------------------------------')
   
-
     await page.waitForTimeout(3000)
 
 })
